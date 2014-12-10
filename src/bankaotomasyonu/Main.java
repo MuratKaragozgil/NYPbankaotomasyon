@@ -121,9 +121,17 @@ public class Main {
                       }
                           break;
             case 2: // yeni kullanici olusturma 
+                String userName;
                 System.out.print("Bir kullanici adi giriniz:"); 
-                String userName=scan.next();
-                 System.out.print("Bir şifre giriniz:");
+                userName=scan.next(); 
+                while(getUser.check(userName)){
+                     System.err.println("Böyle bir kullanici adi zaten var !!"); 
+                     System.out.print("Baska bir kullanici adi giriniz :");
+                       userName=scan.next();
+                      
+                }
+                
+                System.out.print("Bir şifre giriniz:");
                 String passWord=scan.next();
                 System.out.print("Eklenecek para miktarini giriniz:");
                 float money=scan.nextFloat();
@@ -135,7 +143,7 @@ public class Main {
             
         }
        
-                    System.exit(1);
+                   
        }
         
             

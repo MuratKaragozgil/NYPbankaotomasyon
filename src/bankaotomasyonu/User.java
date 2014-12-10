@@ -135,7 +135,7 @@ File f=new File("/home/murat/NetBeansProjects/BankaOtomasyonu/src/bankaotomasyon
         
         }
     
-    @Override
+    @Override  //Overload yaptığım metod Tek argüman alıyor.
     public boolean check(String userName){
         try{
            Scanner scan=new Scanner(f); 

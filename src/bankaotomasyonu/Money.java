@@ -67,28 +67,28 @@ public abstract class Money {
     public void addMoney(String userName,float value,float newvalue){
                 
                 try{
-                   int satirsayisi=0;
-                   String satir=null;
-                    Scanner dosyatara = new Scanner(db);
-                    while(dosyatara.hasNextLine()){
-                        satirsayisi++;
-                        satir=dosyatara.nextLine();
+                   int numberoflines=0;
+                   String line=null;
+                    Scanner scan = new Scanner(db);
+                    while(scan.hasNextLine()){
+                        numberoflines++;
+                        line=scan.nextLine();
                           
                     }
-                    String [] database = new String[satirsayisi]; //geçici database nesnesi
-                    dosyatara.close();
+                    String [] database = new String[numberoflines]; // tekrar yazmak için gereken string nesnesi
+                    scan.close();
                     
-                    dosyatara=new Scanner(db);
-                    for(int i=0;i<satirsayisi;i++){
-                        database[i]=dosyatara.nextLine();
+                    scan=new Scanner(db);
+                    for(int i=0;i<numberoflines;i++){
+                        database[i]=scan.nextLine();
                     }
                   
-                    dosyatara.close();
+                    scan.close();
                     
                    FileOutputStream os=new FileOutputStream(db,false);
                    PrintStream ps=new PrintStream(os);
                    
-                   for(int i=0;i<satirsayisi;i++){
+                   for(int i=0;i<numberoflines;i++){
                        if(database[i].contains(userName)){
                            //System.out.println(database[i]);
                           database[i]=database[i].replace(String.valueOf(value),String.valueOf(newvalue));
@@ -111,29 +111,29 @@ public abstract class Money {
     public void getMoney(String userName,float getvalue,float newvalue ){
             
                 try{
-                   int satirsayisi=0;
-                   String satir=null;
-                    Scanner dosyatara = new Scanner(db);
-                    while(dosyatara.hasNextLine()){
-                        satirsayisi++;
-                        satir=dosyatara.nextLine();
+                   int numberoflines=0;
+                   String line=null;
+                    Scanner scan = new Scanner(db);
+                    while(scan.hasNextLine()){
+                        numberoflines++;
+                        line=scan.nextLine();
                           
                     }
-                    String [] database = new String[satirsayisi]; 
+                    String [] database = new String[numberoflines]; 
                     
-                    dosyatara.close();
+                    scan.close();
                     
-                    dosyatara=new Scanner(db);
-                    for(int i=0;i<satirsayisi;i++){
-                        database[i]=dosyatara.nextLine();
+                    scan=new Scanner(db);
+                    for(int i=0;i<numberoflines;i++){
+                        database[i]=scan.nextLine();
                     }
                   
-                    dosyatara.close();
+                    scan.close();
                     
                    FileOutputStream os=new FileOutputStream(db,false);
                    PrintStream ps=new PrintStream(os);
                    
-                   for(int i=0;i<satirsayisi;i++){
+                   for(int i=0;i<numberoflines;i++){
                        if(database[i].contains(userName)){
                         
                           database[i]=database[i].replace(String.valueOf(getvalue),String.valueOf(newvalue));
@@ -157,29 +157,29 @@ public abstract class Money {
     public void transMoney(String userName,String transUserName,float senderMoney ,float getterMoney ,float transMoney){
         
                 try{
-                   int satirsayisi=0;
-                   String satir=null;
-                    Scanner dosyatara = new Scanner(db);
-                    while(dosyatara.hasNextLine()){
-                        satirsayisi++;
-                        satir=dosyatara.nextLine();
+                   int numberoflines=0;
+                   String line=null;
+                    Scanner scan = new Scanner(db);
+                    while(scan.hasNextLine()){
+                        numberoflines++;
+                        line=scan.nextLine();
                           
                     }
-                    String [] database = new String[satirsayisi]; 
+                    String [] database = new String[numberoflines]; 
                     
-                    dosyatara.close();
+                    scan.close();
                     
-                    dosyatara=new Scanner(db);
-                    for(int i=0;i<satirsayisi;i++){
-                        database[i]=dosyatara.nextLine();
+                    scan=new Scanner(db);
+                    for(int i=0;i<numberoflines;i++){
+                        database[i]=scan.nextLine();
                     }
                   
-                    dosyatara.close();
+                    scan.close();
                     
                    FileOutputStream os=new FileOutputStream(db,false);
                    PrintStream ps=new PrintStream(os);
                    
-                   for(int i=0;i<satirsayisi;i++){
+                   for(int i=0;i<numberoflines;i++){
                        if(database[i].contains(userName)){
                         
                           database[i]=database[i].replace(String.valueOf(senderMoney),String.valueOf(senderMoney-transMoney));
